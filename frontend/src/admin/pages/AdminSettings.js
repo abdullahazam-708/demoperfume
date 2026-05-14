@@ -4,7 +4,7 @@ import axios from 'axios';
 import { User, Store, Save, Lock, Mail, Phone, MapPin, Globe, Sparkles, BookOpen, Plus, Trash2, Cpu } from 'lucide-react';
 import AdminLayout from '../components/AdminLayout';
 import { useSettings } from '../../context/SettingsContext';
-import API_BASE_URL from '../../config/api';
+import { API_BASE_URL, IMAGE_BASE_URL } from '../../config/api';
 
 const AdminSettings = () => {
     const location = useLocation();
@@ -427,7 +427,7 @@ const AdminSettings = () => {
                                             overflow: 'hidden'
                                         }}>
                                             {shopSettings.logo ? (
-                                                <img src={shopSettings.logo.startsWith('/') ? `http://localhost:5000${shopSettings.logo}` : shopSettings.logo} alt="Logo" style={{ maxHeight: '80%', maxWidth: '80%', objectFit: 'contain' }} />
+                                                <img src={shopSettings.logo.startsWith('/') ? `${IMAGE_BASE_URL}${shopSettings.logo}` : shopSettings.logo} alt="Logo" style={{ maxHeight: '80%', maxWidth: '80%', objectFit: 'contain' }} />
                                             ) : (
                                                 <span style={{ color: '#999', fontSize: '0.8rem' }}>No Logo</span>
                                             )}
@@ -482,7 +482,7 @@ const AdminSettings = () => {
                                             overflow: 'hidden'
                                         }}>
                                             {shopSettings.favicon ? (
-                                                <img src={shopSettings.favicon.startsWith('/') ? `http://localhost:5000${shopSettings.favicon}` : shopSettings.favicon} alt="Favicon" style={{ height: '32px', width: '32px', objectFit: 'contain' }} />
+                                                <img src={shopSettings.favicon.startsWith('/') ? `${IMAGE_BASE_URL}${shopSettings.favicon}` : shopSettings.favicon} alt="Favicon" style={{ height: '32px', width: '32px', objectFit: 'contain' }} />
                                             ) : (
                                                 <span style={{ color: '#999', fontSize: '0.8rem' }}>No Favicon</span>
                                             )}
@@ -694,7 +694,7 @@ const AdminSettings = () => {
                                 {(shopSettings.heroBanners || []).map((banner, index) => (
                                     <div key={index} className="banner-item" style={{ position: 'relative', borderRadius: '8px', overflow: 'hidden', border: '1px solid #ddd', height: '120px' }}>
                                         <img
-                                            src={banner.startsWith('/') ? `http://localhost:5000${banner}` : banner}
+                                            src={banner.startsWith('/') ? `${IMAGE_BASE_URL}${banner}` : banner}
                                             alt={`Banner ${index + 1}`}
                                             style={{ width: '100%', height: '100%', objectFit: 'cover' }}
                                         />
@@ -821,7 +821,7 @@ const AdminSettings = () => {
                                             background: '#f8f9fa'
                                         }}>
                                             <img
-                                                src={shopSettings.heritageImage.startsWith('/') ? `http://localhost:5000${shopSettings.heritageImage}` : shopSettings.heritageImage}
+                                                src={shopSettings.heritageImage.startsWith('/') ? `${IMAGE_BASE_URL}${shopSettings.heritageImage}` : shopSettings.heritageImage}
                                                 alt="Heritage Preview"
                                                 style={{ width: '100%', height: '100%', objectFit: 'cover' }}
                                             />

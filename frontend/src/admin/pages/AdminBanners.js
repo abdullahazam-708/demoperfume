@@ -3,7 +3,7 @@ import axios from 'axios';
 import { Sparkles, Plus, Trash2, Save, GripVertical, Image as ImageIcon } from 'lucide-react';
 import AdminLayout from '../components/AdminLayout';
 import { useSettings } from '../../context/SettingsContext';
-import API_BASE_URL from '../../config/api';
+import { API_BASE_URL, IMAGE_BASE_URL } from '../../config/api';
 
 const AdminBanners = () => {
     const { fetchSettings } = useSettings();
@@ -146,7 +146,7 @@ const AdminBanners = () => {
 
                             <div style={{ width: '150px', height: '80px', borderRadius: '8px', overflow: 'hidden', border: '1px solid #f4f4f5' }}>
                                 <img
-                                    src={banner.startsWith('/') ? `http://localhost:5000${banner}` : banner}
+                                    src={banner.startsWith('/') ? `${IMAGE_BASE_URL}${banner}` : banner}
                                     alt="banner"
                                     style={{ width: '100%', height: '100%', objectFit: 'cover' }}
                                 />

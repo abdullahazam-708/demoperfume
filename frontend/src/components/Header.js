@@ -3,6 +3,7 @@ import { Link, NavLink, useNavigate, useLocation } from 'react-router-dom';
 import { ShoppingCart, Menu, X, Search, User, Lock } from 'lucide-react';
 import { useCart } from '../context/CartContext';
 import { useSettings } from '../context/SettingsContext';
+import { IMAGE_BASE_URL } from '../config/api';
 import './Header.css';
 
 const Header = () => {
@@ -64,7 +65,7 @@ const Header = () => {
           <Link to="/" className="logo">
             {settings.logo ? (
               <img
-                src={settings.logo.startsWith('/') ? `http://localhost:5000${settings.logo}` : settings.logo}
+                src={settings.logo.startsWith('/') ? `${IMAGE_BASE_URL}${settings.logo}` : settings.logo}
                 alt={settings.shopName}
                 className="header-logo-img"
               />
